@@ -1,8 +1,6 @@
 from flask import Flask, jsonify, render_template, request, Response, send_from_directory, url_for
 
 MAX_FORCE = 5.0
-gopigo3_robot = EasyGoPiGo3()
-
 app = Flask(__name__, static_url_path='')
 
 @app.route("/robot", methods = ["POST"])
