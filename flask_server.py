@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, render_template, request, Response, send_from_directory, url_for
-from easygopigo3 import EasyGoPiGo3
 
 MAX_FORCE = 5.0
 gopigo3_robot = EasyGoPiGo3()
