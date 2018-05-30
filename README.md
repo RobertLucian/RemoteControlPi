@@ -18,6 +18,9 @@ In this function, there are a couple of variables that were already assigned que
 * `angle_dir`: It tells the general orientation of the joystick. It can be `up`/`down`/`left`/`right`.
 * `joystick_pull_force`: It tells how much the user is pulling the joystick from its center. The values start at 0 and don't have an upper limit. The upper limit is determined by the screen size.
 
+Since I've added a GIF showcasing the GoPiGo3 I also added code for the GoPiGo3 inside the server, so if you ever want to test the GoPiGo3, just uncomment the imports and the call to `actuate_robot` function and run it. Be aware that you'd have to install the GoPiGo3 project from:
+[GoPiGo3 Project](http://github.com/DexterInd/GoPiGo3)
+
 
 ## Setting Up
 
