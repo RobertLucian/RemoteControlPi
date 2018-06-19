@@ -17,19 +17,20 @@ In this function, there are a couple of variables that were already assigned que
 * `angle_degrees`: The orientation of the joystick's small circle relative to the big circle. It's anti-clockwise and it starts at 0 degrees at the right (where the joystick is pulled to the right). It's measured in degrees and the values go from 0 up to 360.
 * `angle_dir`: It tells the general orientation of the joystick. It can be `up`/`down`/`left`/`right`.
 * `joystick_pull_force`: It tells how much the user is pulling the joystick from its center. The values start at 0 and don't have an upper limit. The upper limit is determined by the screen size.
+* `determined_speed`: Is computed from `joystick_pull_force`. The advantage is that this speed is relative to a given range (a max and a min constant).
 
-Since I've added a GIF showcasing the GoPiGo3 I also added code for the GoPiGo3 inside the server, so if you ever want to test the GoPiGo3, just uncomment the imports and the call to `actuate_robot` function and run it. Be aware that you'd have to install the GoPiGo3 project from:
-[GoPiGo3 Project](http://github.com/DexterInd/GoPiGo3)
-
+Since I've added a GIF showcasing the GoPiGo3 I also added code for the GoPiGo3 inside the server, so if you want to test it on your robot, just uncomment anything related to the GoPiGo3 (imports, function calls, exceptions and such) and add yours instead.
 
 ## Setting Up
 
 Install the `Pi Camera` dependencies and `Flask` by running the `install.sh` script:
  ```
- sudo bash install.sh
+ sudo pip3 install -r requirements.txt
  ```
-If everything goes well, **reboot** your `Raspberry Pi`.
-You should now have everything set up.
+
+If you want to run the script just as it is, you also need to install the `gopigo3` library from [GoPiGo3 Repo](http://github.com/DexterInd/GoPiGo3). Otherwise replace everything on the GoPiGo3 in the script with the function calls needed for your own robot.
+
+If you have followed the above instructions, then by now, you should now have everything set up.
 
 
 
@@ -37,7 +38,7 @@ You should now have everything set up.
 
 Start the server by typing the following command:
 ```
-python3 flask_server.py
+python3 remote_robot.py
 ```
 It's going to take a couple of seconds for the server to fire up.
 A port and address will be shown in there. By default, the port is set to `5000`.
@@ -47,7 +48,7 @@ The webpage's address will have the following pattern:
 http://[raspberrypi-ip-address]:[port]
 ```
 
-Also, please make sure you have your mobile device / laptop on the same network as your `Raspberry Pi`. Otherwise, you won't be able to access it.
+Also, make sure you have your mobile device / laptop on the same network as your `Raspberry Pi`. Otherwise, you won't be able to access it.
 
 ## Example Project
 
